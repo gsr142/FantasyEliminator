@@ -2,26 +2,6 @@
 const { Player } = require("../models");
 
 module.exports = {
-  async populateDB() {
-    const url =
-      "https://tank01-nfl-live-in-game-real-time-statistics-nfl.p.rapidapi.com/getNFLPlayerList";
-    const options = {
-      method: "GET",
-      headers: {
-        "X-RapidAPI-Key": APIKEY,
-        "X-RapidAPI-Host":
-          "tank01-nfl-live-in-game-real-time-statistics-nfl.p.rapidapi.com",
-      },
-    };
-
-    try {
-      const response = await fetch(url, options);
-      const result = await response.text();
-      console.log(result);
-    } catch (error) {
-      console.error(error);
-    }
-  },
   // get player(s) by name
   async getPlayerByName({ params }, res) {
     const foundPlayer = await Player.findOne({ name: params.name });

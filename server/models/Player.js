@@ -11,16 +11,12 @@ const playerSchema = new Schema({
     },
     team: {
         type: String,
-        required: true,
+        required: false,
     },
-    week: {
-        type: Number,
-        required: true,
-    },
-    score: {
-        type: Number,
-        required: true,
-    },
+    id: {
+        type: String,
+        required: true
+    }
 });
 
 module.exports = playerSchema
