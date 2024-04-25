@@ -23,4 +23,15 @@ module.exports = {
     }
     res.json(foundPlayers);
   },
+
+  // Add players to the database
+  async createPlayer({ params }, res) {
+    const player = await Player.create(params);
+    if (!player) {
+      return res
+        .status(400)
+        .json({ message: "Something is wrong with your player!" });
+    }
+    res.json(player);
+  },
 };
