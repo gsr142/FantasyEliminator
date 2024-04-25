@@ -6,10 +6,15 @@ const playerSchema = require('./Player').schema;
 
 const userSchema = new Schema(
   {
-    username: {
+    firstName: {
       type: String,
       required: true,
-      unique: true,
+      unique: false,
+    },
+    lastName: {
+      type: String,
+      required: true,
+      unique: false,
     },
     email: {
       type: String,
