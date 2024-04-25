@@ -1,5 +1,7 @@
 require('dotenv').config();
-console.log(process.env);
+
+const { createPlayer } = require('./player-controller');
+
 async function populateDB() {
     const url =
       "https://tank01-nfl-live-in-game-real-time-statistics-nfl.p.rapidapi.com/getNFLPlayerList";
@@ -14,8 +16,19 @@ async function populateDB() {
 
     try {
       const response = await fetch(url, options);
-      const result = await response.text();
-      console.log(result);
+      const result = await response.json();
+      for (let i = 0; i < 5; i++) {
+        if(result.body[i].pos === "QB" || result.body[i].pos === "RB" || result.body[i].pos === "WR" || result.body[i].pos === "TE"){
+            const name = result.body[i].longName;
+            const team = result.body[i].team;
+            const position = result.body[i].pos;
+            const id = result.body[i].playerID;
+            //console.log( name, team, position, id);
+            player = await createPlayer({ params: { name, team, position, id } }, response);
+            console.log(player);
+        }
+      }
+      
     } catch (error) {
       console.error(error);
     }

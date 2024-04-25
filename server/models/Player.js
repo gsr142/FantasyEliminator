@@ -1,4 +1,4 @@
-const { Schema } = require('mongoose');
+const { Schema, model } = require('mongoose');
 
 const playerSchema = new Schema({
     name: {
@@ -11,16 +11,14 @@ const playerSchema = new Schema({
     },
     team: {
         type: String,
-        required: true,
+        required: false,
     },
-    week: {
-        type: Number,
-        required: true,
-    },
-    score: {
-        type: Number,
-        required: true,
-    },
+    id: {
+        type: String,
+        required: true
+    }
 });
 
-module.exports = playerSchema
+
+const Player = model('Player', playerSchema);
+module.exports = Player;
