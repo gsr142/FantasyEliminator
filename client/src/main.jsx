@@ -5,7 +5,7 @@ import Home from './pages/Home.jsx'
 import App from './App.jsx'
 import SignUp from './pages/SignUp.jsx'
 import Login from './pages/Login.jsx'
-
+import Standings from './pages/Standings.jsx'
 
 const router = createBrowserRouter([
   {
@@ -40,7 +40,19 @@ const router = createBrowserRouter([
         element: <Login />
       }
     ]
+  },
+  {
+    path: '/standings',
+    element: <App />,
+    errorElement: <h1 className='display-2'>Wrong page!</h1>,
+    children: [
+      {
+        index: true,
+        element: <Standings />
+      }
+    ]
   }
+
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(
