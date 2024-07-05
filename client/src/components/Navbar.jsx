@@ -34,6 +34,7 @@ export default function Navbar() {
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
   };
+  
 
   return (
     <AppBar position="static" sx={{ bgcolor: '#0b2a3d' }}>
@@ -88,7 +89,17 @@ export default function Navbar() {
               }}
             >
               {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
+                <MenuItem key={page} onClick={() => { 
+                  if (page === 'Home') {
+                    window.location.href = '/';
+                  }
+                  else if (page === 'Standings') {
+                    window.location.href = '/standings';
+                  }
+                  else if (page === 'Make a Pick') {
+                    window.location.href = '/pick';
+                  }
+                }}>
                   <Typography textAlign="center">{page}</Typography>
                 </MenuItem>
               ))}
@@ -117,7 +128,17 @@ export default function Navbar() {
             {pages.map((page) => (
               <Button
                 key={page}
-                onClick={handleCloseNavMenu}
+                onClick={() => { 
+                  if (page === 'Home') {
+                    window.location.href = '/';
+                  }
+                  else if (page === 'Standings') {
+                    window.location.href = '/standings';
+                  }
+                  else if (page === 'Make a Pick') {
+                    window.location.href = '/pick';
+                  }
+                }}
                 sx={{ my: 2, color: 'white', display: 'block' }}
               >
                 {page}

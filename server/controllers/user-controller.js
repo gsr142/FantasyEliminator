@@ -16,6 +16,15 @@ module.exports = {
 
     res.json(foundUser);
   },
+
+  async getUsers({}, res) {
+    const users = await User.find({ email });
+    
+    if (!users) {
+      return res.status(400).json({ message: 'No users found!' });
+    }
+    res.json(users);
+  },
   // create a user, sign a token, and send it back (to client/src/components/SignUpForm.js)
   async createUser({ body }, res) {
     const user = await User.create(body);

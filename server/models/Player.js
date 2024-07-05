@@ -16,6 +16,10 @@ const playerSchema = new Schema({
     id: {
         type: String,
         required: true
+    },
+    pointsThisWeek: {
+        type: Number,
+        default: 0
     }
 });
 

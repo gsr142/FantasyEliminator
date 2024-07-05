@@ -5,7 +5,7 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
-
+import { getUsers } from "../utils/API";
 function createData(name, totalPoints, week1, week2, week3, week4) {
   return { name, totalPoints, week1, week2, week3, week4 };
 }
@@ -18,6 +18,8 @@ const rows = [
   createData("Gingerbread", 356, 16.0, 49, 3.9, 7.0),
 ];
 
+const data = getUsers();
+console.log(data)
 export default function Standings() {
   return (
     <>

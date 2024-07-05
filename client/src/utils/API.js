@@ -8,6 +8,16 @@ export const getMe = (token) => {
   });
 };
 
+export const getUsers = (token) => {
+  return fetch('/api/users', {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+      authorization: `Bearer ${token}`,
+    }
+  });
+};
+
 export const createUser = (userData) => {
   return fetch('/api/users', {
     method: 'POST',

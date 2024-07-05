@@ -26,8 +26,12 @@ const userSchema = new Schema(
       type: String,
       required: true,
     },
+    totalPoints: {
+      type: Number,
+      default: 0
+    },
     // set playerPicks to be an array of data that adheres to the playerSchema
-    playerPicks: [playerSchema],
+    playerPicks: [playerSchema.name, playerSchema.position, playerSchema.pointsThisWeek],
     remainingQBs: {
       type: Number,
       default: 4
