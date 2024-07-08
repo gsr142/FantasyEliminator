@@ -19,7 +19,7 @@ const rows = [
 ];
 
 const data = getUsers();
-console.log(data)
+console.log(data);
 export default function Standings() {
   return (
     <>
