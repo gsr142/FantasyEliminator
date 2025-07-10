@@ -6,6 +6,7 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import { getUsers } from "../utils/API";
+import  Auth from "../utils/auth";
 function createData(name, totalPoints, week1, week2, week3, week4) {
   return { name, totalPoints, week1, week2, week3, week4 };
 }
